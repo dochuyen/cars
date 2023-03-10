@@ -1,0 +1,108 @@
+.logo {
+  width: 6rem;
+  height: 4rem;
+}
+.logo-avt {
+  width: 4.5rem;
+  height: 4.5rem;
+
+    margin-right: 10px;
+    cursor: pointer;
+
+    object-fit: cover;
+    transition: transform 400ms;
+    &:hover{
+        transform: scale(1.2);
+        }
+}
+.title{
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
+  color: #f5f5f5;
+    font-weight: 600;
+    font-size: 28px;
+    &:hover{
+        color: #f5f5f5;
+    }
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.8rem;
+  height: 3.5rem;
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 400;
+  &:hover {
+    border-bottom: 2px solid #ff9950;
+    border-radius: 3px;
+    color: #ff9950;
+  }
+}
+.list-buy{
+  position: absolute;
+  top:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #212529;
+  width: 130px;
+  border-radius: 3px;
+}
+.buy-item{
+margin-top: 5px;
+margin-bottom: 2px;
+display: flex;
+justify-content: center;
+ height: 3rem;
+ width: 120px;
+ text-decoration: none;
+ color: #f5f5f5;
+ font-weight: 400;
+ &:hover {
+   border-bottom: 2px solid #ff9950;
+   border-radius: 3px;
+   color: #ff9950;
+ }
+}
+
+.nav-search{
+    display: flex;
+    align-items: center;
+}
+.search {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 10px;
+  transition-duration: 500ms;
+  cursor: pointer;
+  font-size: 10pxpx;
+  border: 1px solid #fff;
+  overflow: hidden;
+  background-image: url(../accets/icon/search.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 45% 50%;
+  &:hover {
+    border: 1px solid #ff9950;
+  }
+  &:focus {
+    width: 250px;
+    height: 2rem;
+    
+    cursor: text;
+    padding-left: 40px;
+    border-radius: 40px;
+    color: white;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #ff9950;
+    background: url(../accets/icon/search-13-16.png) no-repeat;
+    background-size: 15px;
+    background-position: 20px 50%;
+  }
+}
