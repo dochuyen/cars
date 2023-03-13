@@ -7,18 +7,18 @@ import {
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
-import logo from "../accets/logo/logo.png";
+import logo from "../../accets/logo/logo.png";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { Link, Route, Routes } from "react-router-dom";
-import About from "../component/About/About";
-import Blog from "../component/Blog/Blog";
-import Shop from "../component/Shop/Shop";
-import Contact from "../component/Contact/Contact";
-import Home from "../component/Home/Home";
-import Checkout from "../component/Buy/Checkout/Checkout";
-import ShopCart from "../component/Buy/ShopCart/Shopcart";
-import ShopDetail from "../component/Buy/Shopdetail/Shopdetail";
+import About from "../../component/About/About";
+import Blog from "../../component/Blog/Blog";
+import Shop from "../../component/Shop/Shop";
+import Contact from "../../component/Contact/Contact";
+import Home from "../../component/Home/Home";
+import Checkout from "../../component/Buy/Checkout/Checkout";
+import ShopCart from "../../component/Buy/ShopCart/Shopcart";
+import ShopDetail from "../../component/Buy/Shopdetail/Shopdetail";
 import { Children, useState, useRef } from "react";
 
 const cx = classNames.bind(styles);
@@ -78,21 +78,27 @@ function Header() {
 
   const [types, setTypes] = useState("Home");
   const [showBuy, setShowBuy] = useState(false);
-const timeoutRef=useRef(null);
-const handleMouseLeave=()=>{
-  timeoutRef.current=setTimeout(()=>{
-    setShowBuy(false);
-  }, 2000)
-}
+  const timeoutRef = useRef(null);
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowBuy(false);
+    }, 2000);
+  };
   return (
-    <>
+    <div className="">
       {["md"].map((expand) => (
         <Navbar
           key={expand}
-          bg="dark"
           expand={expand}
           variant="dark"
-          className="mb-3"
+          className={cx("wrapper")}
+          style={{
+            top: "0",
+            position: "fixed",
+            zIndex: "2",
+            width: "100%",
+            
+          }}
         >
           <Container>
             <Link to="/" className={cx("logo")}>
@@ -136,17 +142,29 @@ const handleMouseLeave=()=>{
                       onClick={() => {
                         setTypes(item.type);
                       }}
-                      onMouseEnter={()=>item.type==='Buy'?setShowBuy(true):null}
-                      onMouseLeave={()=>item.children? handleMouseLeave:null}
+                      onMouseEnter={() =>
+                        item.type === "Buy" ? setShowBuy(true) : null
+                      }
+                      onMouseLeave={() =>
+                        item.children ? handleMouseLeave : null
+                      }
                     >
                       {item.type}
-                      {item.children&&showBuy&&(
-                        <div className={cx('list-buy')}
-                        onMouseLeave={()=>item.type==='Buy'? setShowBuy(false):null}>
-                          {item.children.map((child, index)=>(
-                            <Link className={cx('buy-item')} to={child.to} key={index}
-                            
-                            >{child.type}</Link>
+                      {item.children && showBuy && (
+                        <div
+                          className={cx("list-buy")}
+                          onMouseLeave={() =>
+                            item.type === "Buy" ? setShowBuy(false) : null
+                          }
+                        >
+                          {item.children.map((child, index) => (
+                            <Link
+                              className={cx("buy-item")}
+                              to={child.to}
+                              key={index}
+                            >
+                              {child.type}
+                            </Link>
                           ))}
                         </div>
                       )}
@@ -172,7 +190,7 @@ const handleMouseLeave=()=>{
         <Route path="/shopcart" element={<ShopCart />} />
         <Route path="/shopdetail" element={<ShopDetail />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

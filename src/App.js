@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from './Header/Header'
+import Layout from './Layout'
 import Container from 'react-bootstrap/esm/Container'
 
 const App = () => {
   return (
     <>
-      <Header/>
+      <Layout/>
     </>
   )
 }
