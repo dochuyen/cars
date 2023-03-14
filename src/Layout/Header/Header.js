@@ -19,6 +19,7 @@ import Home from "../../component/Home/Home";
 import Checkout from "../../component/Buy/Checkout/Checkout";
 import ShopCart from "../../component/Buy/ShopCart/Shopcart";
 import ShopDetail from "../../component/Buy/Shopdetail/Shopdetail";
+import Login from "../../offpage/Login";
 import { Children, useState, useRef } from "react";
 
 const cx = classNames.bind(styles);
@@ -86,7 +87,7 @@ function Header() {
   };
   return (
     <div className="">
-      {["md"].map((expand) => (
+      {["lg"].map((expand) => (
         <Navbar
           key={expand}
           expand={expand}
@@ -175,21 +176,15 @@ function Header() {
                 <div className={cx("nav-search")}>
                   <input className={cx("search")} type="search" />
                 </div>
+                <Link to='/login' className={cx('btn-log')}>
+                  Login
+                </Link>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/shopcart" element={<ShopCart />} />
-        <Route path="/shopdetail" element={<ShopDetail />} />
-      </Routes>
+     
     </div>
   );
 }

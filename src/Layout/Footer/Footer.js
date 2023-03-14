@@ -78,11 +78,11 @@ const Footer = () => {
         <div className={cx("wrapper")}>
           <div className={cx("menu")}>
             {datas.map((data, index) => (
-              <div className={cx("list")}>
+              <div key={index} className={cx("list")}>
                 <strong>{data.title}</strong>
                 <ul>
                   {data.children.map((chil, index) => (
-                    <li className={cx("item")}>{chil.type}</li>
+                    <li key={index} className={cx("item")}>{chil.type}</li>
                   ))}
                 </ul>
               </div>
@@ -94,7 +94,7 @@ const Footer = () => {
           <div className={cx("social")}>
             <div className={cx("icons")}>
               {socials.map((social, index) => (
-                <a href={social.src}  className={cx("icon")}>{social.icon}</a>
+                <a key={index} href={social.src}  className={cx("icon")}>{social.icon}</a>
               ))}
             </div>
             <span>@SUPER DRIVER</span>

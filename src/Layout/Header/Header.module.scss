@@ -1,5 +1,6 @@
 .header{
   position: fixed;
+  z-index: 10;
 }
 .wrapper {
   
@@ -102,7 +103,6 @@
   &:focus {
     width: 250px;
     height: 2rem;
-
     cursor: text;
     padding-left: 40px;
     border-radius: 40px;
@@ -113,5 +113,17 @@
     background: url(../../accets/icon/search-13-16.png) no-repeat;
     background-size: 15px;
     background-position: 20px 50%;
+  }
+}
+.btn-log{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+  &:hover{
+    color: #fff;
   }
 }
