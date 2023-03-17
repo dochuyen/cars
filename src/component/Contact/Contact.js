@@ -2,39 +2,162 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
+import Button from "react-bootstrap/Button";
 import classNames from "classnames/bind";
 import styles from "./Contact.scss";
 const cx = classNames.bind(styles);
 const Contact = () => {
+  const dataList = [
+    {
+      id: 1,
+      img: "https://static.automotor.vn/images/upload/2022/08/28/bugatti-chay-hang-autonews.jpeg",
+      title: "Bugatti",
+      content:
+        "Bugatti là dòng siêu xe hạng cao hoàn toàn mới của hãng siêu xe Bugatti,Pháp.",
+    },
+    {
+      id: 2,
+      img: "https://xehay.vn/uploads/images/2015/08/4/xehay-10sieuxe-240815-1.jpg",
+      title: "Ferrari",
+      content:
+        "Ferrari là dòng xe thể thao đường dài động cơ đặt giữa và dẫn động cầu sau của nhà sản xuất xe hơi Ferrari, Ý.",
+    },
+    {
+      id: 3,
+      img: "https://asb.vn/wp-content/uploads/2021/03/top-sieu-xe-lam-nen-ten-tuoi-tren-thi-truong-chau-my-1.jpg",
+      title: "Lamborghini",
+      content:
+        "Automobili Lamborghini S.p.A là nhà sản xuất siêu xe thể thao cao cấp của Italy",
+    },
+  ];
   return (
     <div className={cx("wrapper")}>
-      <h1>Contatti & Info</h1>
       <Container>
         <Row>
-          <Col xs={12} md={8}>
-            xs=12 md=8
+          <h1>Contatti & Info</h1>
+
+          <Col
+            xs={12}
+            md={7}
+            style={{
+              border: "none",
+              alignItems: "center",
+            }}
+          >
+            <Card style={{ margin: "0 5%" }}>
+              <Card.Body>
+                <Card.Title>Info & Cars</Card.Title>
+
+                <Card.Text>
+                  Chào mừng quý khách đến với chúng tôi! Chúng tôi đang cung cấp
+                  những dòng xe ô tô sang trọng và đẳng cấp, đáp ứng nhu cầu di
+                  chuyển của quý khách hàng.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <br />
+            <Card style={{ margin: "0 5%" }}>
+              <Card.Body>
+                <Card.Title>Location</Card.Title>
+
+                <Card.Text>
+                  500 Terry Francois Street San Francisco, CA 94158
+                  <br />
+                  Phone: 123 - 456 - 7890
+                  <br />
+                  Email: info@mysite.com
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </Col>
-          <Col xs={6} md={4}>
-            xs=6 md=4
+
+          <Col xs={12} md={5}>
+            <Card className="text-center" style={{ margin: "30px 5%" }}>
+              <Card.Header>Contatti</Card.Header>
+              <Card.Body>
+                <Card.Title>Support team</Card.Title>
+                <Card.Text>
+                  Phone: 123 - 456 - 7890
+                  <br />
+                  Email: info@mysite.com
+                </Card.Text>
+                <Button variant="primary">Contact</Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
         <Row>
-          <Col xs={6} md={4}>
-            xs=6 md=4
-          </Col>
-          <Col xs={6} md={4}>
-            xs=6 md=4
-          </Col>
-          <Col xs={6} md={4}>
-            xs=6 md=4
-          </Col>
+          <Card style={{ border: "none", borderRadius: "10px" }}>
+            <Card.Body>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3391816052476!2d105.7834574153847!3d20.97903669484882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accd88c1276b%3A0xc7ec85c744d8874e!2zSOG7kyBHxrDGoW0gUGxhemE!5e0!3m2!1svi!2s!4v1679021566383!5m2!1svi!2s"
+                width="100%"
+                height="450"
+                title="map"
+                style={{ border: "0" }}
+                loading="lazy"
+              />
+            </Card.Body>
+          </Card>
+        </Row>
+        <Row xs={1} md={1} lg={1}>
+          <Card
+            style={{
+              border: "none",
+              alignItems: "center",
+            }}
+          >
+            <Card.Body>
+              <Card.Title>Perchè partire con Surfcamp?</Card.Title>
+            </Card.Body>
+            <CardGroup style={{ justifyContent: "space-evenly" }}>
+              {dataList.map((item) => (
+                <Card
+                  key={item.id}
+                  style={{
+                    width: "18rem",
+                    border: "none",
+                    textAlign: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Card.Img
+                    style={{
+                      width: "150px",
+                      height: "150px",
+                      borderRadius: "50%",
+                    }}
+                    variant="bottom"
+                    src={item.img}
+                  />
+                  <Card.Body>
+                    <Card.Title>{item.Title}</Card.Title>
+                    <Card.Text>{item.content}</Card.Text>
+                  </Card.Body>
+                </Card>
+              ))}
+            </CardGroup>
+          </Card>
         </Row>
 
-        {/* Columns are always 50% wide, on mobile and desktop */}
         <Row>
-          <Col xs={6}>xs=6</Col>
-          <Col xs={6}>xs=6</Col>
+          <Card
+            style={{
+              width: "80%",
+              margin: "0 10% 100px 10%",
+              border: "none",
+            }}
+          >
+            <Card.Body>
+              <Card.Title>Some quick example</Card.Title>
+            </Card.Body>
+            <Card.Img
+              variant="bottom"
+              src="https://ktsvanlam.com/cach-ve-o-to-dep-nhat-the-gioi/imager_4_1230_700.jpg"
+            />
+          </Card>
         </Row>
       </Container>
     </div>
