@@ -125,15 +125,15 @@ const Contact = () => {
                 >
                   <Card.Img
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      width: "190px",
+                      height: "190px",
                       borderRadius: "50%",
                     }}
                     variant="bottom"
                     src={item.img}
                   />
                   <Card.Body>
-                    <Card.Title>{item.Title}</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                     <Card.Text>{item.content}</Card.Text>
                   </Card.Body>
                 </Card>

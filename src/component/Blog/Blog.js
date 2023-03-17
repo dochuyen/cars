@@ -7,6 +7,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 import classNames from "classnames/bind";
 import styles from "./Blog.module.scss";
+
 const cx = classNames.bind(styles);
 const Blog = () => {
   return (
