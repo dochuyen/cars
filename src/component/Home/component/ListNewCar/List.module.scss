@@ -1,0 +1,42 @@
+.wrapper {
+    margin: 10px 0;
+}
+.box {
+  max-width: 250px;
+  height: 250px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  object-fit: cover;
+  transition: transform 400ms;
+  &:hover {
+    background-color: aliceblue;
+    transform: scale(1.05);
+  }
+}
+.img-car {
+  border-radius: 5px;
+  width: 250px;
+}
+.picture {
+  max-width: 250px;
+  border-radius: 3px;
+}
+.car {
+    position: relative;
+  padding: 10px 0 15px 5px;
+}
+.name-car {
+  font-weight: 900;
+}
+.price-car {
+  
+  font-size: 12px;
+}
+.icon{
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    border: none;
+    background-color: transparent;
+}

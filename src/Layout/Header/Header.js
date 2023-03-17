@@ -98,7 +98,6 @@ function Header() {
             position: "fixed",
             zIndex: "100",
             width: "100%",
-            
           }}
         >
           <Container>
@@ -144,9 +143,10 @@ function Header() {
                         setTypes(item.type);
                       }}
                       onMouseEnter={() =>
-                        item.type === "Buy" ? setShowBuy(true) :setShowBuy(false)
+                        item.type === "Buy"
+                          ? setShowBuy(true)
+                          : setShowBuy(false)
                       }
-                      
                     >
                       {item.type}
                       {item.children && showBuy && (
@@ -174,7 +174,7 @@ function Header() {
                 <div className={cx("nav-search")}>
                   <input className={cx("search")} type="search" />
                 </div>
-                <Link to='/login' className={cx('btn-log')}>
+                <Link to="/login" className={cx("btn-log")}>
                   Login
                 </Link>
               </Offcanvas.Body>
@@ -182,7 +182,6 @@ function Header() {
           </Container>
         </Navbar>
       ))}
-     
     </div>
   );
 }

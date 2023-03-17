@@ -7,6 +7,7 @@ import bn2 from "../../accets/banner/car2.jpg";
 import bn3 from "../../accets/banner/car3.jpg";
 import ListNewCar from "./component/ListNewCar/ListNewCar";
 import Sale from "./component/Sale/Sale";
+import Lucky from "./component/Lucky/Lucky";
 
 const cx = classNames.bind(styles);
 const Home = () => {
@@ -61,14 +62,14 @@ const Home = () => {
         </div>
         
         <div className={cx("new-arrivals")}>
-          <h2 className={cx('new-title')}>New arrivals</h2>
+          <h2 className={cx("new-title")}>New arrivals</h2>
           <div className={cx('new-box')}>
             <ListNewCar/>
           </div>
 
         </div>
-        <div className={cx('lucky-game')}>
-          lucky game
+        <div className={cx("lucky-game")}>
+          <Lucky/>
         </div>
 
         <div className={cx("evaluate")}>evaluate</div>
