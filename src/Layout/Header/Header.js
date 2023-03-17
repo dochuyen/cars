@@ -96,7 +96,7 @@ function Header() {
           style={{
             top: "0",
             position: "fixed",
-            zIndex: "2",
+            zIndex: "100",
             width: "100%",
             
           }}
@@ -144,11 +144,9 @@ function Header() {
                         setTypes(item.type);
                       }}
                       onMouseEnter={() =>
-                        item.type === "Buy" ? setShowBuy(true) : null
+                        item.type === "Buy" ? setShowBuy(true) :setShowBuy(false)
                       }
-                      onMouseLeave={() =>
-                        item.children ? handleMouseLeave : null
-                      }
+                      
                     >
                       {item.type}
                       {item.children && showBuy && (

@@ -5,10 +5,15 @@
     margin-top: 2px;
     border-radius: 3px;
 }
+.sale{
+    padding: 30px 0;
+}
 .new-arrivals{
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .new-title{
     color: #383838;
