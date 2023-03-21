@@ -3,6 +3,7 @@ import { Carousel, Col, Row, Card, Button } from "react-bootstrap";
 import classNames from "classnames/bind";
 import styles from "./List.module.scss";
 import {IoIosAddCircle} from 'react-icons/io'
+import {AiFillStar} from 'react-icons/ai'
 
 const cx = classNames.bind(styles);
 const ListNewCar = () => {
@@ -17,7 +18,10 @@ const ListNewCar = () => {
           <div className={cx('price-car')}>
             $15,730*
           </div>
-          <button className={cx('icon')}>
+          <button className={cx('star')}>
+            <AiFillStar className={cx('icon-star')}/>
+          </button>
+          <button className={cx('add')}>
             <IoIosAddCircle/>
           </button>
         </div>

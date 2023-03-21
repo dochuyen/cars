@@ -1,5 +1,5 @@
 .wrapper {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 .box {
   max-width: 250px;
@@ -23,20 +23,26 @@
   border-radius: 3px;
 }
 .car {
-    position: relative;
+  position: relative;
   padding: 10px 0 15px 5px;
 }
 .name-car {
   font-weight: 900;
 }
-.price-car {
+.star {
+  border: none;
+  background-color: transparent;
+}
+.icon-star {
   
+}
+.price-car {
   font-size: 12px;
 }
-.icon{
-    position: absolute;
-    right: 10px;
-    top: 6px;
-    border: none;
-    background-color: transparent;
+.add {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  border: none;
+  background-color: transparent;
 }

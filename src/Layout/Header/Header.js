@@ -19,7 +19,7 @@ import Home from "../../component/Home/Home";
 import Checkout from "../../component/Buy/Checkout/Checkout";
 import ShopCart from "../../component/Buy/ShopCart/Shopcart";
 import ShopDetail from "../../component/Buy/Shopdetail/Shopdetail";
-import Login from "../../offpage/Login";
+
 import { Children, useState, useRef } from "react";
 
 const cx = classNames.bind(styles);

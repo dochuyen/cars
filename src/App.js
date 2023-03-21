@@ -10,41 +10,41 @@ import About from "./component/About/About";
 import Checkout from "./component/Buy/Checkout/Checkout";
 import Shopcart from "./component/Buy/ShopCart/Shopcart";
 import Shopdetail from "./component/Buy/Shopdetail/Shopdetail";
-import Login from "./offpage/Login";
+import Login from "./offpage/Login/Login";
 
 const App = () => {
   const publics = [
     {
       path: "/",
-      component: Home ,
+      component: Home,
     },
     {
       path: "/shop",
-      component: Shop ,
+      component: Shop,
     },
     {
       path: "/blog",
-      component: Blog ,
+      component: Blog,
     },
     {
       path: "/contact",
-      component: Contact ,
+      component: Contact,
     },
     {
       path: "/about",
-      component: About ,
+      component: About,
     },
     {
       path: "/checkout",
-      component: Checkout ,
+      component: Checkout,
     },
     {
       path: "/shopcart",
-      component: Shopcart ,
+      component: Shopcart,
     },
     {
       path: "/shopdetail",
-      component: Shopdetail ,
+      component: Shopdetail,
     },
   ];
   return (

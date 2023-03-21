@@ -26,10 +26,31 @@ const Login = () => {
     },
   ];
   const [changelLog, setChangeLog] = useState(true);
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleRegister = () => {
-    setChangeLog(changelLog === true?false:true);
+  const handleChange = () => {
+    setChangeLog(changelLog === true ? false : true);
   };
+
+  const submitRegister = async (e) => {
+    e.preventDefault();
+    const res = await fetch(
+      "https://63fb4ba12027a45d8d63d560.mockapi.io/account",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, email, password }),
+        headers: {
+          "Content-Type": "apilication/json",
+        },
+      }
+    );
+    const data = await res.json();
+    console.log(data);
+    console.log(JSON.stringify({ username, email, password }));
+  };
+  
 
   return (
     <div className={cx("box")}>
@@ -38,7 +59,7 @@ const Login = () => {
           <div className={cx("container")}>
             <div className={cx("login")}>
               <form action="#">
-                <h1 className={cx('big-title')}>Login hire.</h1>
+                <h1 className={cx("big-title")}>Login hire.</h1>
                 <input type="email" placeholder="Email"></input>
                 <input type="password" placeholder="Password"></input>
                 <div className={cx("content")}>
@@ -50,8 +71,8 @@ const Login = () => {
                     <a href="#">Forgot password?</a>
                   </div>
                 </div>
-                <button className={cx('btn-login')}>Login</button>
-                <span className={cx('or')}>or use your account</span>
+                <button className={cx("btn-login")}>Login</button>
+                <span className={cx("or")}>or use your account</span>
                 <div className={cx("social-box")}>
                   {socials.map((social, index) => (
                     <a key={index} className={cx("social")} href={social.src}>
@@ -68,11 +89,11 @@ const Login = () => {
                   <h1 className={cx("title")}>
                     Start yout <br /> journy now
                   </h1>
-                  <p className={cx('text')}>
+                  <p className={cx("text")}>
                     if you don't have an account yet, join us and start your
                     journey.
                   </p>
-                  <button className={cx("ghost")} onClick={handleRegister}>
+                  <button className={cx("ghost")} onClick={handleChange}>
                     Register
                     <AiOutlineArrowRight className={cx("icon-register")} />
                   </button>
@@ -83,13 +104,30 @@ const Login = () => {
         ) : (
           <div className={cx("container")}>
             <div className={cx("register")}>
-              <form action="#">
-                <h1 className={cx('big-title')}>Register hire.</h1>
-                <input type="text" placeholder="Name"></input>
-                <input type="email" placeholder="Email"></input>
-                <input type="password" placeholder="Password"></input>
-                <button className={cx('btn-register')}>Register</button>
-                <span className={cx('or')}>or use your account</span>
+              <form onSubmit={submitRegister}>
+                <h1 className={cx("big-title")}>Register hire.</h1>
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUserName(e.target.value)}
+                  placeholder="Name"
+                ></input>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                ></input>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                ></input>
+                <button type="submit" className={cx("btn-register")}>
+                  Register
+                </button>
+                <span className={cx("or")}>or use your account</span>
                 <div className={cx("social-box")}>
                   {socials.map((social, index) => (
                     <a key={index} className={cx("social")} href={social.src}>
@@ -105,8 +143,10 @@ const Login = () => {
                   <h1 className={cx("title")}>
                     Hello <br /> friends
                   </h1>
-                  <p className={cx('text')}>if Yout have an account, login here and have fun</p>
-                  <button onClick={handleRegister} className={cx("ghost")}>
+                  <p className={cx("text")}>
+                    if Yout have an account, login here and have fun
+                  </p>
+                  <button onClick={handleChange} className={cx("ghost")}>
                     Login
                     <AiOutlineArrowLeft />
                   </button>
