@@ -6,7 +6,8 @@ import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 import classNames from "classnames/bind";
-import styles from "./Contact.scss";
+import styles from "./Contact.module.scss";
+
 const cx = classNames.bind(styles);
 const Contact = () => {
   const dataList = [
@@ -34,8 +35,20 @@ const Contact = () => {
   ];
   return (
     <div className={cx("wrapper")}>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3391816052476!2d105.7834574153847!3d20.97903669484882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accd88c1276b%3A0xc7ec85c744d8874e!2zSOG7kyBHxrDGoW0gUGxhemE!5e0!3m2!1svi!2s!4v1679021566383!5m2!1svi!2s"
+        width="95%"
+        height="450"
+        title="map"
+        style={{
+          border: "1px  blue solid  ",
+          margin: " 0 2.5%",
+          borderRadius: "5px",
+        }}
+        loading="lazy"
+      />
       <Container>
-        <Row>
+        <Row className={cx("figure")}>
           <h1>Contatti & Info</h1>
 
           <Col
@@ -46,61 +59,42 @@ const Contact = () => {
               alignItems: "center",
             }}
           >
-            <Card style={{ margin: "0 5%" }}>
+            <Card style={{ margin: "0 5%" }} className={cx("card-prev")}>
               <Card.Body>
-                <Card.Title>Info & Cars</Card.Title>
-
-                <Card.Text>
+                <h3>Info & Cars</h3>
+                <p>
                   Chào mừng quý khách đến với chúng tôi! Chúng tôi đang cung cấp
                   những dòng xe ô tô sang trọng và đẳng cấp, đáp ứng nhu cầu di
                   chuyển của quý khách hàng.
-                </Card.Text>
+                </p>
               </Card.Body>
             </Card>
             <br />
-            <Card style={{ margin: "0 5%" }}>
+            <Card style={{ margin: "0 5%" }} className={cx("card-prev")}>
               <Card.Body>
-                <Card.Title>Location</Card.Title>
-
-                <Card.Text>
-                  500 Terry Francois Street San Francisco, CA 94158
-                  <br />
-                  Phone: 123 - 456 - 7890
-                  <br />
-                  Email: info@mysite.com
-                </Card.Text>
+                <h3>Location</h3>
+                <p> 500 Terry Francois Street San Francisco, CA 94158</p>
+                <p>Phone: 123 - 456 - 7890</p>
+                <p> Email: info@mysite.com</p>
               </Card.Body>
             </Card>
           </Col>
-
-          <Col xs={12} md={5}>
-            <Card className="text-center" style={{ margin: "30px 5%" }}>
-              <Card.Header>Contatti</Card.Header>
+          <Col
+            xs={12}
+            md={5}
+            style={{ justifyContent: "center", alignItems: "center" }}
+          >
+            <Card className={cx("card-prev")} style={{ margin: "40px 5%" }}>
+              <Card.Header style={{ background: "violet" }} as="h3">
+                Support team
+              </Card.Header>
               <Card.Body>
-                <Card.Title>Support team</Card.Title>
-                <Card.Text>
-                  Phone: 123 - 456 - 7890
-                  <br />
-                  Email: info@mysite.com
-                </Card.Text>
+                <p> Phone: 123 - 456 - 7890</p>
+                <p>Email: info@mysite.com</p>
                 <Button variant="primary">Contact</Button>
               </Card.Body>
             </Card>
           </Col>
-        </Row>
-        <Row>
-          <Card style={{ border: "none", borderRadius: "10px" }}>
-            <Card.Body>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.3391816052476!2d105.7834574153847!3d20.97903669484882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135accd88c1276b%3A0xc7ec85c744d8874e!2zSOG7kyBHxrDGoW0gUGxhemE!5e0!3m2!1svi!2s!4v1679021566383!5m2!1svi!2s"
-                width="100%"
-                height="450"
-                title="map"
-                style={{ border: "0" }}
-                loading="lazy"
-              />
-            </Card.Body>
-          </Card>
         </Row>
         <Row xs={1} md={1} lg={1}>
           <Card
