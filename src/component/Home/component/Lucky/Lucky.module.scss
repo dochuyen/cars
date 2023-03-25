@@ -1,0 +1,40 @@
+.title{
+    text-align: center;
+}
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content:space-around;
+    margin-top: 20px;
+
+}
+.key-car{
+    
+}
+.avt-key{
+    height: 250px;
+    width: 250px;
+}
+.content{
+    margin-left: 20px;
+}
+.text{
+    font-family: 'Delicious Handrawn', cursive;
+}
+.btn-random{
+ border: none;
+ background-color: #f39c12;
+ color: #ecf0f1;
+ width: 130px;
+ height: 40px;
+ border-radius: 10px;
+ font-weight: 600;
+}
+.result{
+    height: 250px;
+    width: 250px;
+    font-family: 'Delicious Handrawn', cursive;
+    font-size: 20px ;
+}

@@ -8,6 +8,7 @@ import bn3 from "../../accets/banner/car3.jpg";
 import ListNewCar from "./component/ListNewCar/ListNewCar";
 import Sale from "./component/Sale/Sale";
 import Lucky from "./component/Lucky/Lucky";
+import Trend from "./component/Trend/Trend";
 
 const cx = classNames.bind(styles);
 const Home = () => {
@@ -72,7 +73,9 @@ const Home = () => {
           <Lucky/>
         </div>
 
-        <div className={cx("evaluate")}>evaluate</div>
+        <div className={cx("trend")}>
+          <Trend/>
+        </div>
       </Container>
     </div>
   );

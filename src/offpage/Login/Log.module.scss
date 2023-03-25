@@ -135,7 +135,7 @@ input {
   border-radius: 10px;
   border: none;
   padding: 12px 15px;
-  margin: 8px 0 !important;
+  margin: 13px 0 !important;
   width: 100%;
 }
 .container {
@@ -268,4 +268,21 @@ input {
 }
 .social-box a:hover {
   border: 1px solid #4bb6b7;
+}
+.pass-show{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.icon-show{
+  position: absolute;
+  right: 15px;
+}
+.error{
+  color: red;
+  font-size: 11px;
+  height: auto;
+  line-height: 15px;
 }

@@ -11,7 +11,10 @@ const Layout = ({ children }) => {
       <div className={cx("header")}>
         <Header />
       </div>
+      <div className={cx('content')}>
+        
       {children}
+      </div>
       <Footer />
     </>
   );

@@ -1,3 +1,7 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
 .header{
   position: fixed;
   z-index: 10;
@@ -126,4 +130,36 @@
   &:hover{
     color: #fff;
   }
+}
+.nav{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-left: 3px;
+}
+.icon-nav{
+  margin: 0 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+.child-icon{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #eb2f06;
+  color: #fff;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  right: -1px;
+  top: 0;
+}
+.menu-list{
+  z-index: 11;
+  height: 300px;
+  width:300px ;
+  background-color: #eb2f06;
 }
