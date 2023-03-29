@@ -32,6 +32,14 @@ ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    & span{
+        line-height: 1px;
+        margin: 0 5px;
+        font-size: 15px;
+        cursor: pointer;
+        color: #606060;
+        font-weight: 500;
+    }
 }
 
 .icon{
@@ -44,11 +52,4 @@ ul{
 
     }
 }
-span{
-    line-height: 1px;
-    margin: 0 5px;
-    font-size: 15px;
-    cursor: pointer;
-    color: #606060;
-    font-weight: 500;
-}
+

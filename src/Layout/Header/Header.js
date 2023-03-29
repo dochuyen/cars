@@ -36,10 +36,6 @@ function Header() {
           type: "Shop detail",
         },
         {
-          to: "/shopcart",
-          type: "Shop cart",
-        },
-        {
           to: "/checkout",
           type: "Check out",
         },

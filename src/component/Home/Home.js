@@ -59,22 +59,27 @@ const Home = () => {
 
       <Container>
         <div className={cx("sale")}>
-          <Sale/>
+          <Sale />
         </div>
-        
+      </Container>
+
+      <div className={cx("lucky-game")}>
+        <Lucky />
+      </div>
+
+      <Container>
         <div className={cx("new-arrivals")}>
+          <p className={cx('small-title')}>LATEST PRODUCTS</p>
           <h2 className={cx("new-title")}>New arrivals</h2>
-          <div className={cx('new-box')}>
-            <ListNewCar/>
+          <div className={cx("new-box")}>
+            <ListNewCar />
           </div>
-
         </div>
-        <div className={cx("lucky-game")}>
-          <Lucky/>
-        </div>
+      </Container>
 
+      <Container>
         <div className={cx("trend")}>
-          <Trend/>
+          <Trend />
         </div>
       </Container>
     </div>

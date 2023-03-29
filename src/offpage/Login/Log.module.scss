@@ -120,24 +120,8 @@ a {
 .icon-login {
   left: 70px;
 }
-form {
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 50px;
-  height: 100%;
-  text-align: center;
-}
-input {
-  background-color: #eee;
-  border-radius: 10px;
-  border: none;
-  padding: 12px 15px;
-  margin: 13px 0 !important;
-  width: 100%;
-}
+
+
 .container {
   background-color: #fff;
   border-radius: 25px;
@@ -147,6 +131,24 @@ input {
   width: 768px;
   min-width: 100%;
   min-height: 500px;
+  & form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+  }
+  & input {
+    background-color: #eee;
+    border-radius: 10px;
+    border: none;
+    padding: 12px 15px;
+    margin: 13px 0 !important;
+    width: 100%;
+  }
 }
 .register,
 .login {
@@ -238,7 +240,7 @@ input {
   width: 50%;
   transform: translateX(0);
   transition: trasform 0.6s ease-in-out;
-  background-image: url(../../accets/git/giphy.gif);
+  background-image: url(../../accets/gif/giphy.gif);
   background-repeat: no-repeat;
   background-size: cover;
 }

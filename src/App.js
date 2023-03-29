@@ -7,7 +7,6 @@ import Shop from "./component/Shop/Shop";
 import Blog from "./component/Blog/Blog";
 import Contact from "./component/Contact/Contact";
 import Checkout from "./component/Buy/Checkout/Checkout";
-import Shopcart from "./component/Buy/ShopCart/Shopcart";
 import Shopdetail from "./component/Buy/Shopdetail/Shopdetail";
 import Login from "./offpage/Login/Login";
 
@@ -33,10 +32,6 @@ const App = () => {
     {
       path: "/checkout",
       component: Checkout,
-    },
-    {
-      path: "/shopcart",
-      component: Shopcart,
     },
     {
       path: "/shopdetail",
