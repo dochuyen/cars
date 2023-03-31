@@ -183,13 +183,28 @@ const Blog = () => {
 
           <Col md={{ span: 6, offset: 3 }}>
             <Form>
-              <input type="text" width="50%" placeholder="UserName" />
+              <input
+                type="text"
+                placeholder="UserName"
+                style={{
+                  width: "100%",
+                  height: "50px",
+                  borderRadius: "10px",
+                  padding: "10px",
+                  marginBottom: "10px",
+                }}
+              />
 
               <textarea
                 name=""
                 id=""
                 placeholder="Nội dung "
-                style={{ width: "100%", height: "100px", borderRadius: "10px" }}
+                style={{
+                  width: "100%",
+                  height: "100px",
+                  borderRadius: "10px",
+                  padding: "10px",
+                }}
               ></textarea>
               <br />
               <Button variant="primary" type="submit">
