@@ -1,12 +1,15 @@
 .inbox {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   background-color: transparent;
   padding: 0 !important;
 }
 .form {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+
 }
 .text-email {
   font-size: 15px;

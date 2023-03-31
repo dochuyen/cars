@@ -1,40 +1,52 @@
-.title{
-    text-align: center;
-}
-.wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content:space-around;
-    margin-top: 20px;
 
+.wrapper{
+    // position: relative;
+    background-color: #f1f1f1;
+    display: flex;
+    width: 100%;
+    height: 500px;
 }
-.key-car{
-    
+.picture{
+    width: 70%;
+    height: 500px;
+    object-fit: cover;
 }
-.avt-key{
-    height: 250px;
-    width: 250px;
+.interact{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin-left: -92px;
+    transform: skewX(-20deg);
+    background-color: #f1f1f1;
 }
 .content{
-    margin-left: 20px;
+    margin-top: 30px;
+    background-color: #f1f1f1;
+    margin-left: -100px;
+    z-index: 1;
+    width: 400px;
+    text-align: center;
 }
-.text{
-    font-family: 'Delicious Handrawn', cursive;
+.btn{
+    display: flex;
+    justify-content: center;
 }
-.btn-random{
- border: none;
- background-color: #f39c12;
- color: #ecf0f1;
- width: 130px;
- height: 40px;
- border-radius: 10px;
- font-weight: 600;
+.btn-click{
+    height: 40px;
+    width: 200px;
+    background-color: #ee4d2d;
+    border: none;
+    color: #f1f1f1;
+    border-radius: 3px;
 }
 .result{
-    height: 250px;
-    width: 250px;
-    font-family: 'Delicious Handrawn', cursive;
-    font-size: 20px ;
+    margin-top: 20px;
+}
+.img-random{
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+}
+.text-random{
+    font-weight: 500;
 }

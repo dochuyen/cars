@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Log.module.scss";
 import classNames from "classnames/bind";
 import {
@@ -37,29 +37,19 @@ const Login = () => {
   const [passValid, setPassValid] = useState(true);
   const [name, setName] = useState(true);
 
-
-
   //Login
-  const [login, setLogin]=useState([])
-  const [emailLogin, setEmailLogin]=useState('')
-  const [passwordLogin, setPasswordLogin]=useState('')
-  
- 
-  const handleLogin=async (e)=>{
-    e.preventDefault();
-    try {
-      const res=fetch('https://63fb4ba12027a45d8d63d560.mockapi.io/account')
-      .then(res=>res.json())
-      .then(data=>{
-      setLogin(data)
-      
-        console.log(data)
-      })
-    } catch (error) {
-      
-    }
-    
-  }
+  const [login, setLogin] = useState([]);
+  const [emailLogin, setEmailLogin] = useState("");
+  const [passwordLogin, setPasswordLogin] = useState("");
+
+  useEffect(() => {
+    fetch("https://63fb4ba12027a45d8d63d560.mockapi.io/account")
+      .then((res) => res.json())
+      .then((data) => {
+        setLogin(data);
+        console.log(data);
+      });
+  }, []);
 
 
 
@@ -84,8 +74,8 @@ const Login = () => {
       );
       const data = await res.json();
       input.current.focus();
-      alert('Bạn đã đăng ký thành công, mời bạn đăng nhập!')
-      setChangeLog(true)
+      alert("Bạn đã đăng ký thành công, mời bạn đăng nhập!");
+      setChangeLog(true);
     }
   };
   const handleShow = () => {
@@ -98,17 +88,17 @@ const Login = () => {
   const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   const changeUser = (e) => {
     const value = e.target.value;
-    setUserName(value)
-    if (username.length >= 2 || username == "") {
+    const lengthUsername = username.length;
+    setUserName(value);
+    if (lengthUsername >= 4 || username == "") {
       setName(false);
     } else {
       setName(true);
     }
-    console.log(username.length)
   };
 
   const changePass = (e) => {
-    const value=e.target.value
+    const value = e.target.value;
     setPassword(value);
 
     if ((password.match(passw) && password.length >= 8) || password == "") {
@@ -116,7 +106,6 @@ const Login = () => {
     } else {
       setPassValid(true);
     }
-  
   };
 
   return (
@@ -146,7 +135,7 @@ const Login = () => {
                 <div className={cx("content")}>
                   <div className={cx("checkbox")}>
                     <input type="checkbox" name="checkbox" />
-                    <label className={cx("remember")}>Remember me</label>
+                    <label className={cx("remember")}>Remember account</label>
                   </div>
                   <div className={cx("pass-link")}>
                     <a href="#">Forgot password?</a>
@@ -168,7 +157,7 @@ const Login = () => {
               <div className={cx("overlay-log")}>
                 <div className={cx("over-right")}>
                   <h1 className={cx("title")}>
-                    Start yout <br /> journy now
+                    Start your <br /> journey now
                   </h1>
                   <p className={cx("text")}>
                     if you don't have an account yet, join us and start your
@@ -259,7 +248,7 @@ const Login = () => {
                     Hello <br /> friends
                   </h1>
                   <p className={cx("text")}>
-                    if Yout have an account, login here and have fun
+                    if you have an account, login here and have fun
                   </p>
                   <button onClick={handleChange} className={cx("ghost")}>
                     Login
