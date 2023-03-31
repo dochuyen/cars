@@ -49,7 +49,7 @@ const Lucky = () => {
       <img className={cx("picture")} src={picturelucky}></img>
       <div className={cx("interact")}></div>
       <div className={cx("content")}>
-        <h1 className={cx("title")}>LUCK</h1>
+        <h1 className={cx("title")}>LUCKY GIFT</h1>
         <p className={cx("text")}>Randomly a surprise will come to you</p>
         <div className={cx("btn")}>
           <button className={cx("btn-click")} disabled={isClicked} onClick={handleRandom}>

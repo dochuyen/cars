@@ -6,9 +6,8 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-
+import { BiUser } from "react-icons/bi";
 import { Children, useState, useRef } from "react";
-
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -47,7 +46,7 @@ function Header() {
       type: "Blog",
       text: false,
     },
-    
+
     {
       id: 5,
       to: "/contact",
@@ -63,11 +62,13 @@ function Header() {
   ];
   const [types, setTypes] = useState("Home");
   const [showBuy, setShowBuy] = useState(false);
+  const [showUser, setShowUser] = useState(false);
   const timeoutRef = useRef(null);
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setShowBuy(false);
-    }, 2000);
+  const handleLeave = () => {
+    setShowUser(false);
+  };
+  const handleHover = () => {
+    setShowUser(true);
   };
   return (
     <div className={cx("container")}>
@@ -158,11 +159,23 @@ function Header() {
                 <div className={cx("nav-search")}>
                   <input className={cx("search")} type="search" />
                 </div>
-                <Link to="/login" className={cx("btn-log")}>
-                  Login
-                </Link>
+                <button
+                  onMouseEnter={handleHover}
+                  onMouseLeave={handleLeave}
+                  className={cx("btn-log")}
+                >
+                  <BiUser />
+                  {showUser && (
+                    <div className={cx("user")}>
+                      <Link className={cx('user-login')} to="/login">Login</Link>
+                    </div>
+                  )}
+                </button>
                 <div className={cx("nav")}>
-                  <Link to='/shopcart' style={{ position: "relative", cursor: "pointer" }}>
+                  <Link
+                    to="/shopcart"
+                    style={{ position: "relative", cursor: "pointer" }}
+                  >
                     <AiOutlineShoppingCart className={cx("icon-nav")} />
                     <div className={cx("child-icon")}>3</div>
                   </Link>
