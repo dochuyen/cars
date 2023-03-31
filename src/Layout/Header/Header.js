@@ -1,26 +1,14 @@
-import {
-  Button,
-  Container,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-  Offcanvas,
-} from "react-bootstrap";
+import { Container, Form, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import logo from "../../accets/logo/logo.png";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
-import { Link, Route, Routes } from "react-router-dom";
-import About from "../../component/About/About";
-import Blog from "../../component/Blog/Blog";
-import Shop from "../../component/Shop/Shop";
-import Contact from "../../component/Contact/Contact";
-import Home from "../../component/Home/Home";
-import Checkout from "../../component/Buy/Checkout/Checkout";
-import ShopCart from "../../component/Buy/ShopCart/Shopcart";
-import ShopDetail from "../../component/Buy/Shopdetail/Shopdetail";
-import Login from "../../offpage/Login";
+import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 import { Children, useState, useRef } from "react";
+
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -63,20 +51,20 @@ function Header() {
       type: "Blog",
       text: false,
     },
+    
     {
       id: 5,
-      to: "/about",
-      type: "About",
-      text: false,
-    },
-    {
-      id: 6,
       to: "/contact",
       type: "Contact",
       text: false,
     },
   ];
 
+  const offpage = [
+    {
+      type: "Login",
+    },
+  ];
   const [types, setTypes] = useState("Home");
   const [showBuy, setShowBuy] = useState(false);
   const timeoutRef = useRef(null);
@@ -86,7 +74,7 @@ function Header() {
     }, 2000);
   };
   return (
-    <div className="">
+    <div className={cx("container")}>
       {["lg"].map((expand) => (
         <Navbar
           key={expand}
@@ -98,7 +86,6 @@ function Header() {
             position: "fixed",
             zIndex: "100",
             width: "100%",
-            
           }}
         >
           <Container>
@@ -144,9 +131,10 @@ function Header() {
                         setTypes(item.type);
                       }}
                       onMouseEnter={() =>
-                        item.type === "Buy" ? setShowBuy(true) :setShowBuy(false)
+                        item.type === "Buy"
+                          ? setShowBuy(true)
+                          : setShowBuy(false)
                       }
-                      
                     >
                       {item.type}
                       {item.children && showBuy && (
@@ -174,15 +162,20 @@ function Header() {
                 <div className={cx("nav-search")}>
                   <input className={cx("search")} type="search" />
                 </div>
-                <Link to='/login' className={cx('btn-log')}>
+                <Link to="/login" className={cx("btn-log")}>
                   Login
                 </Link>
+                <div className={cx("nav")}>
+                  <Link to='/shopcart' style={{ position: "relative", cursor: "pointer" }}>
+                    <AiOutlineShoppingCart className={cx("icon-nav")} />
+                    <div className={cx("child-icon")}>3</div>
+                  </Link>
+                </div>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
-     
     </div>
   );
 }

@@ -42,7 +42,7 @@ const Contact = () => {
         title="map"
         style={{
           border: "1px  blue solid  ",
-          margin: " 0 2.5%",
+          margin: " 20px 2.5%",
           borderRadius: "5px",
         }}
         loading="lazy"

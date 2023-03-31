@@ -7,13 +7,15 @@ import bn2 from "../../accets/banner/car2.jpg";
 import bn3 from "../../accets/banner/car3.jpg";
 import ListNewCar from "./component/ListNewCar/ListNewCar";
 import Sale from "./component/Sale/Sale";
+import Lucky from "./component/Lucky/Lucky";
+import Trend from "./component/Trend/Trend";
 
 const cx = classNames.bind(styles);
 const Home = () => {
   return (
     <div className={cx("home")}>
-      <Carousel className={cx("banner")} fade>
-        <Carousel.Item>
+      <Carousel  className={cx("banner")} fade>
+        <Carousel.Item interval={1000}>
           <img
             className={cx("d-block w-100 banner-avt")}
             src={bn1}
@@ -25,7 +27,7 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item>
+        <Carousel.Item interval={500}>
           <img
             className={cx("d-block w-100 banner-avt")}
             src={bn2}
@@ -38,7 +40,7 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        <Carousel.Item>
+        <Carousel.Item interval={500}>
           <img
             className={cx("d-block w-100 h-25 banner-avt")}
             style={{ height: "200px" }}
@@ -61,17 +63,19 @@ const Home = () => {
         </div>
         
         <div className={cx("new-arrivals")}>
-          <h2 className={cx('new-title')}>New arrivals</h2>
+          <h2 className={cx("new-title")}>New arrivals</h2>
           <div className={cx('new-box')}>
             <ListNewCar/>
           </div>
 
         </div>
-        <div className={cx('lucky-game')}>
-          lucky game
+        <div className={cx("lucky-game")}>
+          <Lucky/>
         </div>
 
-        <div className={cx("evaluate")}>evaluate</div>
+        <div className={cx("trend")}>
+          <Trend/>
+        </div>
       </Container>
     </div>
   );

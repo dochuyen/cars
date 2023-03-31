@@ -1,33 +1,58 @@
 import React from "react";
 import styles from "./Sale.module.scss";
 import classNames from "classnames/bind";
+import img1 from '../../../../accets/homecar/1.png'
+
+
 
 const cx = classNames.bind(styles);
 const Sale = () => {
   return (
-    <div className={cx('wrapper')}>
-      <h2 className={cx('title')}>Bestseller</h2>
-      <section className={cx("hero-section")}>
-        <div className={cx("card-container")}>
-          <div className={cx("card")}>
-            <div className={cx("card-background")}></div>
-            <div className={cx("content")}>
-              <div className={cx('card-category')}>
-                BMW
-              </div>
-              {/* <h3 className="card-heading">No plan for today</h3> */}
-            </div>
+    <div className={cx('container')}>
+      <a
+        alt="Mythrill"
+        target="_blank"
+      >
+        <div className={cx("card")}>
+          <div className={cx("wrapper")}>
+            <img
+              src="https://images.pexels.com/photos/905554/pexels-photo-905554.jpeg?auto=compress&cs=tinysrgb&w=600"
+              className={cx("cover-image")}
+            />
           </div>
-          <div className={cx("card")}>
-            <div className={cx("card-background")}></div>
-            <div className={cx("content")}>
-              <div className={cx('card-category')}>
-                over size
-              </div>
-            </div>
-          </div>
+          {/* <img
+            src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
+            className={cx("title")}
+          /> */}
+          <img
+            src={img1}
+            className={cx("character")}
+          />
         </div>
-      </section>
+      </a>
+
+      <a
+        alt="Mythrill"
+        target="_blank"
+      >
+        <div className={cx("card")}>
+          <div className={cx("wrapper")}>
+            <img
+              src="https://images.pexels.com/photos/11921988/pexels-photo-11921988.jpeg?auto=compress&cs=tinysrgb&w=600"
+              className={cx("cover-image")}
+            />
+          </div>
+          {/* <img
+            src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
+            className={cx("title")}
+          /> */}
+          <img
+            src={img1}
+            className={cx("character")}
+          />
+        </div>
+      </a>
+
     </div>
   );
 };

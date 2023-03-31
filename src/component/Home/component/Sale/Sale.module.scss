@@ -1,77 +1,101 @@
+:root {
+  --card-height: 250px;
+  --card-width: 350px;
+}
+.container{
+  display: flex;
+  justify-content: center;
+
+}
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: var(--card-height);
+  object-fit: cover;
+  border-radius: 3px;
+}
+
 .wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
   height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
 }
 .title {
-  margin-bottom: 30px;
-  color: #333;
-  text-align: center;
-}
-.hero-section {
-  display: flex;
-  min-height: 100%;
-  align-items: center;
-  justify-self: center;
-}
-.card-container {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  &:hover .card:not(:hover) {
-    transform: scale(0.9);
-  }
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
 }
 
-.card {
-  position: relative;
-  list-style: none;
-  gap: 30px;
-  width: 260px;
-  height: 180px;
-  transition: 0.3s ease;
-  cursor: pointer;
-  margin: 0 10px;
-  &::before {
-    content: "";
-    display: block;
-    
-    width: 100%;
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
 
-  }
-  &:hover .card-background {
-    transform: scale(1.15) translateZ(0);
-    background-size: 260px;
-  }
-}
-.card-background {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: 20px;
-  background-size: 350px;
-  background-position: center;
-  filter: brightness(.9) saturate(1) contrast(1);
-  transform-origin: bottom;
-  transform: scale(1) translateZ(0);
-  background-image: url(../../../../accets/banner/car1.jpg);
-}
-.content {
-  top: 50%;
-  left: 0;
-  padding: 25px;
-  position: absolute;
-}
-.card-category {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-.card-heading {
-  color: #fff;
-  font-size: 25px;
-  line-height: 1;
-  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
 }

@@ -2,16 +2,19 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Carousel from "react-bootstrap/Carousel";
-import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Slider from "react-slick";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import classNames from "classnames/bind";
 import styles from "./Blog.module.scss";
 
 const cx = classNames.bind(styles);
 const Blog = () => {
-  const cardData = [
+  const cardDatas = [
     {
       id: 1,
       img: "https://znews-photo.zingcdn.me/w660/Uploaded/ebhuiwh/2022_02_10/2022_Koenigsegg_Expansion_Announcement_1.jpg",
@@ -51,20 +54,152 @@ const Blog = () => {
       img: "https://danchoioto.vn/wp-content/uploads/2020/05/xe-mo-hinh-bang-bang-nhua-silicone-hoac-cao-su-duoc-goi-la-dong-xe-resin.jpg",
     },
   ];
+  const blogData = [
+    {
+      title: "Blog 1",
+      discriptions: "bài 1",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSku11THyazq5qxc17AmBnusnk9dY7nPyiB2Q&usqp=CAU",
+    },
+  ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplayspeed: 1000,
+    responsive: [
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+    ],
+  };
   return (
     <>
-      <img
-        src="https://thienthanhlimo.com/wp-content/uploads/2022/05/101-anh-sieu-xe-4k-tai-free-lam-hinh-nen-dt-may-tinh.jpg"
-        alt=""
-        width="100%"
-        className={cx("img-nav")}
-      />
+      <div>
+        <img
+          src="https://media1.nguoiduatin.vn/thumb_x640x384/media/truong-cong-hieu/2021/01/19/lo-dien-mot-sieu-xe-chi-danh-rieng-cho-nguoi-my.gif"
+          alt=""
+          width="100%"
+          height="550px"
+        />
+      </div>
       <Container>
-        <Row xs={2} md={3} lg={4} className="g-4"></Row>
-        <Row></Row>
+        <Row
+          style={{
+            position: "relative",
+            top: -120,
+          }}
+        >
+          <Slider {...settings}>
+            {cardDatas.map((cardData, index) => (
+              <div className={cx("slider-box")} key={index}>
+                <img
+                  src={cardData.img}
+                  alt=""
+                  height="300px"
+                  className={cx("slide-list")}
+                />
+                <div>
+                  <h1>lambogifi</h1>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </Row>
+        <Row
+          style={{
+            position: "static",
+          }}
+        >
+          <Col xs={12} md={6} lg={4}>
+            <Card style={{ width: "100%", marginTop: "20px" }}>
+              <Card.Img
+                variant="top"
+                width="150px"
+                height="200px"
+                src="https://sohanews.sohacdn.com/thumb_w/660/2018/10/2/image-12-1538483239360278266980-1538485472308424302289.png"
+              />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col xs={12} md={6} lg={4} className={cx("blog")}>
+            <Card style={{ width: "100%", marginTop: "20px" }}>
+              <Card.Img
+                variant="top"
+                width="100px"
+                height="200px"
+                src="https://sohanews.sohacdn.com/thumb_w/660/2018/10/2/image-12-1538483239360278266980-1538485472308424302289.png"
+              />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col xs={12} md={6} lg={4} className={cx("blog")}>
+            <Card style={{ width: "100%", marginTop: "20px" }}>
+              <Card.Img
+                variant="top"
+                width="100px"
+                height="200px"
+                src="https://sohanews.sohacdn.com/thumb_w/660/2018/10/2/image-12-1538483239360278266980-1538485472308424302289.png"
+              />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <h1>Comment</h1>
+
+          <Col md={{ span: 6, offset: 3 }}>
+            <Form>
+              <input type="text" width="50%" placeholder="UserName" />
+
+              <textarea
+                name=""
+                id=""
+                placeholder="Nội dung "
+                style={{ width: "100%", height: "100px", borderRadius: "10px" }}
+              ></textarea>
+              <br />
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
       </Container>
     </>
   );
 };
-
 export default Blog;

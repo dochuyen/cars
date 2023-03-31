@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Login from "../offpage/Login";
 import classNames from "classnames/bind";
 import styles from './Layout.module.scss'
 
@@ -12,7 +11,10 @@ const Layout = ({ children }) => {
       <div className={cx("header")}>
         <Header />
       </div>
+      <div className={cx('content')}>
+        
       {children}
+      </div>
       <Footer />
     </>
   );

@@ -9,6 +9,9 @@ import {
 } from "react-icons/ai";
 import {FaFacebookF} from 'react-icons/fa'
 import ContactForm from "../ContactForm/ContactForm";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 
 const cx = classNames.bind(styles);
 const Footer = () => {
@@ -97,7 +100,8 @@ const Footer = () => {
                 <a key={index} href={social.src}  className={cx("icon")}>{social.icon}</a>
               ))}
             </div>
-            <span>@SUPER DRIVER</span>
+            
+              <span>@SUPER DRIVER</span>
           </div>
         </div>
       </Container>
