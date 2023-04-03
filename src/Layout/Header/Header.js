@@ -7,7 +7,8 @@ import { AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { BiUser } from "react-icons/bi";
-import { Children, useState, useRef } from "react";
+import {BsBoxArrowRight, BsBoxArrowLeft} from 'react-icons/bs'
+import { Children, useState, useRef, useEffect } from "react";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -64,6 +65,23 @@ function Header() {
   const [showBuy, setShowBuy] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const timeoutRef = useRef(null);
+  const [localUsername, setLocalUsername] = useState(false);
+
+  const local = localStorage.getItem("validUser");
+  const paserUsername = JSON.parse(local);
+  console.log(local)
+  useEffect(()=>{
+    if(local===null){
+      setLocalUsername(true)
+    }else{
+      setLocalUsername(false)
+    }
+  },[local])
+
+  const handleLogOut=()=>{
+    localStorage.removeItem('validUser')
+  }
+
   const handleLeave = () => {
     setShowUser(false);
   };
@@ -167,7 +185,16 @@ function Header() {
                   <BiUser />
                   {showUser && (
                     <div className={cx("user")}>
-                      <Link className={cx('user-login')} to="/login">Login</Link>
+                      {localUsername ? (
+                        <Link className={cx("user-login")} to="/login">
+                         <span><BsBoxArrowLeft/></span> Login
+                        </Link>
+                      ) : (
+                        <>
+                        <Link className={cx('btn-user')}><span><BiUser /></span> {paserUsername}</Link>
+                        <Link onClick={handleLogOut} className={cx("btn-log")}><span><BsBoxArrowRight/></span>Log out</Link>
+                        </>
+                      )}
                     </div>
                   )}
                 </div>

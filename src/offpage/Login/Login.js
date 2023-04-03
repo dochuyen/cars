@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, createContext } from "react";
 import styles from "./Log.module.scss";
 import classNames from "classnames/bind";
 import {
@@ -34,29 +34,31 @@ const Login = () => {
   const [login, setLogin] = useState([]);
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
-  const [linkLogin, setLinkLogin]=useState(false)
-
+  const [linkLogin, setLinkLogin] = useState(false);
+  const [localAccount, setLocalAccount]=useState([])
+  localStorage.getItem('localAccount')
+  const validUser = login.find(
+    (user) => user.email === emailLogin && user.password === passwordLogin
+  );
   useEffect(() => {
     fetch("https://63fb4ba12027a45d8d63d560.mockapi.io/account")
       .then((res) => res.json())
       .then((data) => {
         setLogin(data);
-        console.log(data);
       });
   }, []);
- useEffect(()=>{
-  const validUser = login.find(
-    (user) => user.email === emailLogin && user.password === passwordLogin
-  );
-  console.log(validUser)
-  if(validUser) {
-    setLinkLogin(true)
-    console.log("ok");
-  } else {
-    console.log("fail");
-    setLinkLogin(false)
+  useEffect(() => {
+    if (validUser) {
+      setLinkLogin(true);
+    } else {
+      console.log("fail");
+    }
+  }, [emailLogin && passwordLogin]);
+  const pushLocal=()=>{
+      localAccount.push(validUser.id)
+      localStorage.setItem('validUser', JSON.stringify(validUser.username))
+      console.log(localAccount.id)
   }
- },[emailLogin&&passwordLogin])
 
   //Register
   const [changelLog, setChangeLog] = useState(true);
@@ -125,7 +127,7 @@ const Login = () => {
         {changelLog ? (
           <div className={cx("container")}>
             <div className={cx("login")}>
-              <form >
+              <form>
                 <h1 className={cx("big-title")}>Login hire.</h1>
                 <input
                   value={emailLogin}
@@ -159,10 +161,12 @@ const Login = () => {
                     <a href="#">Forgot password?</a>
                   </div>
                 </div>
-               {!linkLogin?( <Link  className={cx("btn-login")}>
-                  Login
-                </Link>):(
-                  <Link to='/' className={cx("btn-login")}>Login</Link>
+                {!linkLogin ? (
+                  <Link className={cx("btn-login")}>Login</Link>
+                ) : (
+                  <Link onClick={pushLocal} to="/" className={cx("btn-login")}>
+                    Login
+                  </Link>
                 )}
                 <span className={cx("or")}>or use your account</span>
                 <div className={cx("social-box")}>
