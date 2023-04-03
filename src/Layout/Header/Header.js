@@ -159,7 +159,7 @@ function Header() {
                 <div className={cx("nav-search")}>
                   <input className={cx("search")} type="search" />
                 </div>
-                <button
+                <div
                   onMouseEnter={handleHover}
                   onMouseLeave={handleLeave}
                   className={cx("btn-log")}
@@ -170,10 +170,10 @@ function Header() {
                       <Link className={cx('user-login')} to="/login">Login</Link>
                     </div>
                   )}
-                </button>
+                </div>
                 <div className={cx("nav")}>
                   <Link
-                    to="/shopcart"
+                    to="/checkout"
                     style={{ position: "relative", cursor: "pointer" }}
                   >
                     <AiOutlineShoppingCart className={cx("icon-nav")} />

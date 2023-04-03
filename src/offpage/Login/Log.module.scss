@@ -67,7 +67,7 @@ a {
   align-items: center;
   justify-content: center;
 }
-.btn-register, .btn-login, .ghost {
+.btn-register, .ghost {
   position: relative;
   border-radius: 20px !important;
   border: 1px solid #4bb6b7;
@@ -82,6 +82,32 @@ a {
   transition: 0.3s ease-in-out;
   &:hover {
     letter-spacing: 3px;
+  }
+  :active {
+    transform: scale(0.95);
+  }
+  :focus {
+    outline: none;
+  }
+}
+.btn-login{
+  position: relative;
+  border-radius: 20px !important;
+  border: 1px solid #4bb6b7;
+  background-color: #4bb6b7;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 10px;
+  padding: 12px 80px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    letter-spacing: 3px;
+  color: #fff;
+
   }
   :active {
     transform: scale(0.95);

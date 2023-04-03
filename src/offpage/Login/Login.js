@@ -11,6 +11,7 @@ import { BsFillEyeSlashFill } from "react-icons/bs";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFacebook } from "react-icons/bs";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const Login = () => {
@@ -28,19 +29,12 @@ const Login = () => {
       src: "",
     },
   ];
-  const [changelLog, setChangeLog] = useState(true);
-  const [username, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [hidden, setHidden] = useState(false);
-  const [hiddenRegister, setHiddenRegister] = useState(false);
-  const [passValid, setPassValid] = useState(true);
-  const [name, setName] = useState(true);
 
   //Login
   const [login, setLogin] = useState([]);
   const [emailLogin, setEmailLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
+  const [linkLogin, setLinkLogin]=useState(false)
 
   useEffect(() => {
     fetch("https://63fb4ba12027a45d8d63d560.mockapi.io/account")
@@ -50,12 +44,31 @@ const Login = () => {
         console.log(data);
       });
   }, []);
-
-
-
+ useEffect(()=>{
+  const validUser = login.find(
+    (user) => user.email === emailLogin && user.password === passwordLogin
+  );
+  console.log(validUser)
+  if(validUser) {
+    setLinkLogin(true)
+    console.log("ok");
+  } else {
+    console.log("fail");
+    setLinkLogin(false)
+  }
+ },[emailLogin&&passwordLogin])
 
   //Register
+  const [changelLog, setChangeLog] = useState(true);
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [hidden, setHidden] = useState(false);
+  const [hiddenRegister, setHiddenRegister] = useState(false);
+  const [passValid, setPassValid] = useState(true);
+  const [name, setName] = useState(true);
   const input = useRef();
+
   const handleChange = () => {
     setChangeLog(changelLog === true ? false : true);
   };
@@ -87,24 +100,22 @@ const Login = () => {
 
   const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   const changeUser = (e) => {
-    const value = e.target.value;
-    const lengthUsername = username.length;
+    const { value } = e.target;
     setUserName(value);
-    if (lengthUsername >= 4 || username == "") {
-      setName(false);
-    } else {
+    if (value.length >= 4) {
       setName(true);
+    } else {
+      setName(false);
     }
   };
 
   const changePass = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setPassword(value);
-
-    if ((password.match(passw) && password.length >= 8) || password == "") {
-      setPassValid(false);
-    } else {
+    if (value.match(passw) && value.length >= 8) {
       setPassValid(true);
+    } else {
+      setPassValid(false);
     }
   };
 
@@ -114,11 +125,18 @@ const Login = () => {
         {changelLog ? (
           <div className={cx("container")}>
             <div className={cx("login")}>
-              <form action="/">
+              <form >
                 <h1 className={cx("big-title")}>Login hire.</h1>
-                <input type="email" placeholder="Email"></input>
+                <input
+                  value={emailLogin}
+                  type="email"
+                  onChange={(e) => setEmailLogin(e.target.value)}
+                  placeholder="Email"
+                ></input>
                 <div className={cx("pass-show")}>
                   <input
+                    value={passwordLogin}
+                    onChange={(e) => setPasswordLogin(e.target.value)}
                     type={hidden ? "text" : "password"}
                     placeholder="Password"
                   ></input>
@@ -141,7 +159,11 @@ const Login = () => {
                     <a href="#">Forgot password?</a>
                   </div>
                 </div>
-                <button className={cx("btn-login")}>Login</button>
+               {!linkLogin?( <Link  className={cx("btn-login")}>
+                  Login
+                </Link>):(
+                  <Link to='/' className={cx("btn-login")}>Login</Link>
+                )}
                 <span className={cx("or")}>or use your account</span>
                 <div className={cx("social-box")}>
                   {socials.map((social, index) => (

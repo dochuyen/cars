@@ -65,7 +65,8 @@ const Blog = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
+    centerPadding: '200px',
     slidesToScroll: 1,
     autoplay: true,
     autoplayspeed: 1000,
@@ -96,7 +97,7 @@ const Blog = () => {
         />
       </div>
       <Container>
-        <Row
+        <Row 
           style={{
             position: "relative",
             top: -120,
@@ -105,12 +106,7 @@ const Blog = () => {
           <Slider {...settings}>
             {cardDatas.map((cardData, index) => (
               <div className={cx("slider-box")} key={index}>
-                <img
-                  src={cardData.img}
-                  alt=""
-                  height="300px"
-                  className={cx("slide-list")}
-                />
+                
                 <div>
                   <h1>lambogifi</h1>
                 </div>
