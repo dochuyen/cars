@@ -21,33 +21,26 @@ const Product = () => {
       page: 4,
     },
   ];
-  const products=[
-    {
-      picture:'https://tse2.mm.bing.net/th?id=OIP.jP1affsIOeZfzgBUNECqrAHaE7&pid=Api&P=0'
-      
-    },
 
-    {
-      picture:'https://tse2.mm.bing.net/th?id=OIP.jP1affsIOeZfzgBUNECqrAHaE7&pid=Api&P=0'
-    },
-    
-  ]
   const [heart, setHeart] = useState(false);
   const [pageAction, setPageAction] = useState(1);
-  
   const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([
+    {
+      picture:
+        "https://tse2.mm.bing.net/th?id=OIP.jP1affsIOeZfzgBUNECqrAHaE7&pid=Api&P=0",
+    },
+    {
+      picture:
+        "https://tse2.mm.bing.net/th?id=OIP.jP1affsIOeZfzgBUNECqrAHaE7&pid=Api&P=0",
+    },
+  ]);
 
-  const handleAddToCart = (product) => {
-    const existingProductIndex = cartItems.findIndex((item) => item.id === product.id);
-console.log(existingProductIndex)
-    if (existingProductIndex >= 0) {
-      cartItems[existingProductIndex].quantity += 1;
-    } else {
-      cartItems.push({ ...product, quantity: 1 });
-    }
 
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    setCartItems(cartItems);
+  const handleAddProduct = (product) => {
+    const productList = JSON.parse(localStorage.getItem('cartItems')) || [];
+    productList.push(product);
+    localStorage.setItem('cartItems', JSON.stringify(productList));
   };
 
   const handleHeart = () => {
@@ -58,40 +51,37 @@ console.log(existingProductIndex)
       <p className={cx("option")}>
         <GrFormNextLink /> Showing page <span className={cx("action")}>1</span>
       </p>
-      <div className={cx('product')}>
-        {products.map((product, index)=>(
-          <div className={cx("box")}>
-          <div className={cx("img-car")}>
-            <img
-              className={cx("picture")}
-              src={product.picture}
-            />
-          </div>
-          <div className={cx("car")}>
-            <div className={cx("icons")}>
-              <span className={cx("eye")}>
-                <AiOutlineEye />
-              </span>
-              <span onClick={handleHeart} className={cx("heart")}>
-                {!heart ? (
-                  <AiOutlineHeart />
-                ) : (
-                  <AiFillHeart className={cx("icon-heart")} />
-                )}
-              </span>
+      <div className={cx("product")}>
+        {products.map((product, index) => (
+          <div key={index} className={cx("box")}>
+            <div className={cx("img-car")}>
+              <img className={cx("picture")} src={product.picture} />
             </div>
-            <button className={cx("add")} onClick={handleAddToCart}>
-              <BsCartPlus />
-            </button>
-            <div className={cx("info")}>
-              <div className={cx("title")}>BMW</div>
-              <p className={cx("name-car")}>GTR</p>
-              <div className={cx("price-car")}>
-                <span className={cx("sale-price")}>$20.000</span>- $15.730
+            <div className={cx("car")}>
+              <div className={cx("icons")}>
+                <span className={cx("eye")}>
+                  <AiOutlineEye />
+                </span>
+                <span onClick={handleHeart} className={cx("heart")}>
+                  {!heart ? (
+                    <AiOutlineHeart />
+                  ) : (
+                    <AiFillHeart className={cx("icon-heart")} />
+                  )}
+                </span>
+              </div>
+              <button className={cx("add")} onClick={()=>handleAddProduct(product)}>
+                <BsCartPlus />
+              </button>
+              <div className={cx("info")}>
+                <div className={cx("title")}>BMW</div>
+                <p className={cx("name-car")}>GTR</p>
+                <div className={cx("price-car")}>
+                  <span className={cx("sale-price")}>$20.000</span>- $15.730
+                </div>
               </div>
             </div>
           </div>
-        </div>
         ))}
       </div>
 

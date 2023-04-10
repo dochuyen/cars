@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <div className={cx("wrapper")}>
       {dataBrands.map((dataBrand, index) => (
-        <div className={cx("branding")}>
+        <div key={index} className={cx("branding")}>
           <button onClick={hiddenBrand} className={cx("title")} key={index}>
             {dataBrand.title} {!brand?(<AiOutlineUp className={cx("icon-title")} />):<AiOutlineDown className={cx("icon-title")} />}
           </button>
@@ -79,8 +79,8 @@ const Navbar = () => {
         </div>
       ))}
       {dataPrices.map((dataPrice, index) => (
-        <div className={cx("branding")}>
-          <button onClick={hiddenPrice} className={cx("title")} key={index}>
+        <div key={index} className={cx("branding")}>
+          <button onClick={hiddenPrice} className={cx("title")}>
             {dataPrice.title} {!price?(<AiOutlineUp className={cx("icon-title")} />):<AiOutlineDown className={cx("icon-title")} />}
           </button>
           {!price?(<div className={cx("items-brand")}>

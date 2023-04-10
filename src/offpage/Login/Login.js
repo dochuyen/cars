@@ -51,7 +51,7 @@ const Login = () => {
     if (validUser) {
       setLinkLogin(true);
     } else {
-      console.log("fail");
+      setLinkLogin(false)
     }
   }, [emailLogin && passwordLogin]);
   const pushLocal=()=>{
